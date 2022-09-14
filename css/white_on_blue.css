@@ -21,9 +21,14 @@ span {
   display: inline-block;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
 #menu_bar {
   margin-bottom: 0.8em;
-  padding: 0.3em;
+  padding: 0.4em;
   background-color: #888;
   font-size: 1.1em;
 }
@@ -31,6 +36,7 @@ span {
 #menu_bar div {
   display: inline-block;
 }
+
 
 .menu_item::first-letter {
   color: #f00;
@@ -66,6 +72,7 @@ span {
   font-size: 1.2em;
   padding: 0.2em;
   caret-color: rgba(128,50,0,0.85);
+  line-height: 3;
 }
 
 .page {
