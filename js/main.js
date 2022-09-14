@@ -1,7 +1,7 @@
 let u, menus = document.getElementsByClassName('content'),
 	mc = document.getElementById('main_content'),
 	buffer,
-	buffer_href = "",
+	buffer_node,
 	x = 0;
 
 function menu(e) {
@@ -29,20 +29,11 @@ function menu(e) {
 	content = document.getElementById(choice.id + "_page");
 	if (content) {
 	  buffer = content.textContent.trim();
-	  if (content.hasAttribute("href")) {
-		buffer_href = content.getAttribute("href");
-	  } else {
-		buffer_href = ""
-	  }
+	  buffer_node = content
 	  if(u){
 			clearTimeout(u);
 		}
 	  typeWrite();
-	}
-
-	// handle content click
-	if (e.target.id == "main_content" && buffer_href != ""){
-		window.open(buffer_href, "_blank").focus();
 	}
 }
 
@@ -55,10 +46,12 @@ function typeWrite() {
 	u = setInterval(() => {
 	  if (x >= msg.length) {
 	    clearInterval(u);
+		mc.innerHTML = buffer_node.innerHTML;
+		return;
 	  }
 	  mc.textContent += msg[x] ? msg[x] : "";
 	  x++;
-	}, 20);
+	}, 10);
 }
 
 function drawMouse() {
